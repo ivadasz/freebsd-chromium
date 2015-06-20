@@ -23,7 +23,7 @@
 +#endif
 +
 +bool UncheckedMalloc(size_t size, void** result) {
-+#if defined(MEMORY_TOOL_REPLACES_ALLOCATOR) || \ 
++#if defined(MEMORY_TOOL_REPLACES_ALLOCATOR) || \
 +    (!defined(LIBC_GLIBC) && !defined(USE_TCMALLOC))
 +  *result = malloc(size);
 +#elif defined(LIBC_GLIBC) && !defined(USE_TCMALLOC)
