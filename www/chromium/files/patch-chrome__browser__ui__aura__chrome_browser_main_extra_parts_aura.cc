@@ -1,5 +1,5 @@
---- chrome/browser/ui/aura/chrome_browser_main_extra_parts_aura.cc.orig	 2015-05-13 18:23:04.000000000 -0400
-+++ chrome/browser/ui/aura/chrome_browser_main_extra_parts_aura.cc  2015-05-21 11:12:51.226717000 -0400
+--- chrome/browser/ui/aura/chrome_browser_main_extra_parts_aura.cc.orig	2015-06-11 20:19:28 UTC
++++ chrome/browser/ui/aura/chrome_browser_main_extra_parts_aura.cc
 @@ -19,7 +19,7 @@
  #include "ui/gfx/screen.h"
  #include "ui/views/widget/native_widget_aura.h"
@@ -9,6 +9,15 @@
  #include "base/prefs/pref_service.h"
  #include "chrome/browser/profiles/profile.h"
  #include "chrome/common/pref_names.h"
+@@ -72,7 +72,7 @@
+       command_line->HasSwitch(switches::kViewerLaunchViaAppId)) {
+     return chrome::HOST_DESKTOP_TYPE_ASH;
+   }
+-#elif defined(OS_LINUX)
++#elif defined(OS_LINUX) || defined(OS_BSD)
+   const base::CommandLine* command_line =
+       base::CommandLine::ForCurrentProcess();
+   if (command_line->HasSwitch(switches::kOpenAsh))
 @@ -137,7 +137,7 @@
  }
  
